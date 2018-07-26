@@ -1,0 +1,55 @@
+/**
+ * Vampire Slayer CSS
+ * Version 1.0
+ * Latisha McNeel
+ * July 2018
+ */
+body{
+    background:#000000;
+    color: #ffffff;
+    font-family: 'Eczar', serif;
+    margin-top:30px;
+    text-transform: uppercase;
+}
+
+.btn{
+    text-transform: uppercase;
+    font-size:24px;
+    font-weight:bold;
+}
+
+h1{
+    border-bottom: 1px solid rgba(255,255,255,.6);
+    text-shadow: 3px 3px 3px rgba(255,255,255,.3);
+}
+
+.healthbar{
+    box-shadow: 3px 3px 3px rgba(255,255,255,.3);
+    height:35px;
+    margin:10px auto;
+    width:100%;
+    position:relative;
+}
+
+.healthbar > div {
+    padding:5px;
+    height:100%;
+}
+
+.health-points {
+    position: absolute;
+    left:48%;
+    top:0px;
+}
+
+#button-bar{
+    border:1px solid rgba(255,255,255,.3);
+    box-shadow:0px 0px 6px rgba(255,255,255,.3);
+    height:100px;
+    margin-top:10px;
+}
+
+#message-center{
+    border:1px solid rgba(255,255,255,.3);
+    box-shadow:0px 0px 6px rgba(255,255,255,.3);
+}

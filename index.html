@@ -1,0 +1,81 @@
+<!--
+    Vampire Slayer HTML
+    Version 1.0
+    Latisha McNeel
+    July 2018
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vampire Slayer</title>
+    <!-- Bootstrap CSS/Not including Bootstrap JS - Vue Will Handle that -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Googe Font for Feels -->
+    <link href="https://fonts.googleapis.com/css?family=Eczar" rel="stylesheet">
+    <!-- Custom App Styles -->
+    <link href="assets/css/app.css" rel="stylesheet" />
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- Container -->
+    <div class="container">
+        <h1 class="text-center text-danger">Vampire Slayer</h1>
+        <!-- app instance for Vue Control -->
+        <div id="app">
+            <!-- Character Row -->
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="text-success">You</h2>
+                    <img src="assets/images/Alexander-1-.gif"
+                        alt="Image of Alexander Andersen from Wikia"
+                        height="200px" />
+                    <div class="bg-secondary healthbar">
+                        <div class="bg-success" id="player-health" :style="{width: playerHealth + '%'}"></div>
+                        <div class="health-points">{{ playerHealth }}</div>
+                    </div>
+                </div>
+                <div class="col text-center">
+                    <h2 class="text-warning">Vampire</h2>
+                    <img src="assets/images/Alucard_profile_1.jpg"
+                        alt="Image of Alucard from Wikia"
+                        height="200px" />
+                    <div class="bg-secondary healthbar">
+                        <div class="bg-warning" id="vampire-health" :style="{width: vampireHealth + '%'}"></div>
+                        <div class="health-points">{{ vampireHealth }}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Button Control -->
+            <div class="row">
+                <div class="col text-center align-items-center d-flex justify-content-center" id="button-bar">
+                    <template v-if="playing">
+                        <button class="btn-danger btn-lg btn mx-3" v-on:click="attack()" type="button">Attack</button>
+                        <button class="btn-warning btn-lg btn mx-3" v-on:click="spAttack()" :disabled="specialAttack" type="button">Special Attack</button>
+                        <button class="btn-success btn-lg btn mx-3" v-on:click="heal()" type="button">Heal</button>
+                        <button class="btn-default btn-lg btn mx-3" v-on:click="giveUp()" type="button">Give Up</button>
+                    </template>
+                    <template v-else>
+                            <button class="btn-primary btn-block btn flex-fill" v-on:click="reset()">Start New Game</button>
+                    </template>
+                </div>
+            </div>
+            <!-- Message Center -->
+            <div class="row">
+                <div class="col p-3" id="message-center">
+                    <div v-for="message in messages">
+                        <div :class="[message.classes, 'alert', 'text-center']" >
+                            <div v-html="message.text"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Include Custom JS for Vue -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
